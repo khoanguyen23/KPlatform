@@ -5,11 +5,15 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
+
   const { userId } = auth();
   if (!userId) return redirect("/sign-in");
+
   const user = await getUserInfo({ userId });
-  console.log(user);
+
+  console.log("user info:", user);
   if (user && user.role !== EUserRole.ADMIN) return <PageNotFound />;
+
   return <div>{children}</div>;
 };
 
