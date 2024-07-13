@@ -20,13 +20,14 @@ import slugify from "slugify";
 import { useRouter } from "next/navigation";
 import { createCourse } from "@/lib/actions/course.actions";
 import { toast } from "react-toastify";
+import { IUser } from "@/database/user.model";
 
 const formSchema = z.object({
   title: z.string().min(10, "Tên khóa học phải có ít nhất 10 ký tự"),
   slug: z.string().optional(),
 });
 
-function CourseAddNew() {
+function CourseAddNew({ user }: { user: IUser }) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   // 1. Define your form.
@@ -34,7 +35,7 @@ function CourseAddNew() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: "",
-      slug:"",
+      slug: "",
     },
   });
 
@@ -50,11 +51,14 @@ function CourseAddNew() {
             lower: true,
             locale: "vi",
           }),
+          author: user._id,
       };
       const res = await createCourse(data);
-      if (res?.success) {
-        toast.success("Tạo khóa học thành công");
+      if (!res?.success) {
+        toast.error(res?.message);
+        return;
       }
+      toast.success("Tạo khóa học thành công");
       if (res?.data) {
         router.push(`/manage/course/update?slug=${res.data.slug}`);
       }
