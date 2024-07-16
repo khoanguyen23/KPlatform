@@ -11,11 +11,12 @@ const page = async ({
   };
 }) => {
   const findCourse = await getCourseBySlug({slug: searchParams.slug});
+  console.log(findCourse, "thong tin khoa hoc");
   if(!findCourse) return null;
   return (
     <>
       <Heading className="mb-8">Cập nhật khóa học</Heading>
-      <CourseUpdate />
+      <CourseUpdate courseInfo={JSON.parse(JSON.stringify(findCourse))}/>
     </>
   );
 };

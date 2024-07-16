@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -17,6 +17,7 @@ import { ECourseLevel, ECourseStatus } from "@/types/enums";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Textarea } from "../ui/textarea";
+import { ICourse } from "@/database/course.model";
 const formSchema = z.object({
   title: z.string().min(10, "Tên khóa học phải có ít nhất 10 ký tự"),
   slug: z.string().optional(),
@@ -46,7 +47,7 @@ const formSchema = z.object({
     qa: z.array(z.object({ question: z.string(), answer: z.string() })),
   }),
 });
-const CourseUpdate = () => {
+const CourseUpdate = ({ courseInfo }: { courseInfo: ICourse }) => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -84,7 +85,7 @@ const CourseUpdate = () => {
               <FormItem>
                 <FormLabel>Tên khóa học *</FormLabel>
                 <FormControl>
-                  <Input placeholder="Tên khóa học" {...field} />
+                  <Input placeholder="Tên khóa học" {...field} value={courseInfo?.title} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -97,7 +98,7 @@ const CourseUpdate = () => {
               <FormItem>
                 <FormLabel>Đường dẫn khóa học</FormLabel>
                 <FormControl>
-                  <Input placeholder="khoa-hoc-lap-trinh" {...field} />
+                  <Input placeholder="khoa-hoc-lap-trinh" {...field} value={courseInfo?.slug} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
