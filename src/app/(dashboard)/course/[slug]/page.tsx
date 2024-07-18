@@ -51,6 +51,29 @@ const page = async ({
             <BoxInfo title="Thời lượng">100</BoxInfo>
           </div>
         </BoxSection>
+        <BoxSection title="What Will You Learn?">
+        {data.info.benefits.map((r, index) => (
+            <div key={index} className="mb-3 flex items-center gap-2 w-1/2">
+              <span className="flex-shrink-0 size-5 bg-primary text-white p-1 rounded flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </span>
+              <span>{r}</span>
+            </div>
+          ))}
+        </BoxSection>
         <BoxSection title="Yêu cầu">
           {data.info.requirements.map((r, index) => (
             <div key={index} className="mb-3 flex items-center gap-2">
@@ -72,29 +95,6 @@ const page = async ({
             </span>
             <span>{r}</span>
           </div>
-          ))}
-        </BoxSection>
-        <BoxSection title="Lợi ích">
-        {data.info.benefits.map((r, index) => (
-            <div key={index} className="mb-3 flex items-center gap-2">
-              <span className="flex-shrink-0 size-5 bg-primary text-white p-1 rounded flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4.5 12.75l6 6 9-13.5"
-                  />
-                </svg>
-              </span>
-              <span>{r}</span>
-            </div>
           ))}
         </BoxSection>
         <BoxSection title="Q.A">
@@ -172,7 +172,7 @@ function BoxSection({
   return (
     <>
       <h2 className="font-bold text-xl mb-5">{title}</h2>
-      <div className="mb-10">{children}</div>
+      <div className="mb-10 flex items-center flex-wrap">{children}</div>
     </>
   );
 }
