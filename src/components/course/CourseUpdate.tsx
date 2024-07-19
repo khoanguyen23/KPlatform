@@ -2,7 +2,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -22,6 +28,7 @@ import { toast } from "react-toastify";
 import { updateCourse } from "@/lib/actions/course.actions";
 import { useImmer } from "use-immer";
 import { IconAdd } from "../icons";
+import { courseLevel, courseStatus } from "@/constants";
 
 const formSchema = z.object({
   title: z.string().min(10, "Tên khóa học phải có ít nhất 10 ký tự"),
@@ -101,6 +108,8 @@ const CourseUpdate = ({ data }: { data: ICourse }) => {
             benefits: courseInfo.benefits,
             qa: courseInfo.qa,
           },
+          status: values.status,
+          level: values.level,
         },
       });
       if (values.slug) {
@@ -248,7 +257,23 @@ const CourseUpdate = ({ data }: { data: ICourse }) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Trạng thái</FormLabel>
-                <FormControl></FormControl>
+                <FormControl>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Trạng thái" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {courseStatus.map((status) => (
+                        <SelectItem value={status.value} key={status.value}>
+                          {status.title}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
@@ -259,7 +284,23 @@ const CourseUpdate = ({ data }: { data: ICourse }) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Trình độ</FormLabel>
-                <FormControl></FormControl>
+                <FormControl>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Trình độ" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {courseLevel.map((level) => (
+                        <SelectItem value={level.value} key={level.value}>
+                          {level.title}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
