@@ -23,7 +23,7 @@ const page = async ({
     <div className="grid lg:grid-cols-[2fr,1fr] gap-10 min-h-screen">
       <div>
         <div className="relative aspect-video mb-5">
-        {data.intro_url ? (
+          {data.intro_url ? (
             <>
               <iframe
                 width="853"
@@ -36,7 +36,7 @@ const page = async ({
             </>
           ) : (
             <Image
-            src={data.image}
+              src={data.image}
               alt=""
               fill
               className="w-full h-full object-cover rounded-lg"
@@ -56,7 +56,7 @@ const page = async ({
           </div>
         </BoxSection>
         <BoxSection title="What Will You Learn?">
-        {data.info.benefits.map((r, index) => (
+          {data.info.benefits.map((r, index) => (
             <div key={index} className="mb-3 flex items-center gap-2 w-1/2">
               <span className="flex-shrink-0 size-5 bg-primary text-white p-1 rounded flex items-center justify-center">
                 <svg
@@ -78,27 +78,27 @@ const page = async ({
             </div>
           ))}
         </BoxSection>
-        <BoxSection title="Yêu cầu">
+        <BoxSection title="Yêu cầu" isColumn>
           {data.info.requirements.map((r, index) => (
             <div key={index} className="mb-3 flex items-center gap-2">
-            <span className="flex-shrink-0 size-5 bg-primary text-white p-1 rounded flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
-            </span>
-            <span>{r}</span>
-          </div>
+              <span className="flex-shrink-0 size-5 bg-primary text-white p-1 rounded flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </span>
+              <span>{r}</span>
+            </div>
           ))}
         </BoxSection>
         <BoxSection title="Q.A">
@@ -111,7 +111,7 @@ const page = async ({
         </BoxSection>
       </div>
       <div>
-        <div className="bg-white rounded-lg p-5">
+        <div className="bg-white rounded-lg p-5 shadow-md">
           <div className="flex items-center gap-2 mb-3">
             <strong className="text-primary text-xl font-bold">
               {data.price}
@@ -120,7 +120,7 @@ const page = async ({
               {data.sale_price}
             </span>
             <span className="ml-auto inline-block px-3 py-1 rounded-lg bg-primary text-primary bg-opacity-10 font-semibold text-sm">
-              {100-Math.floor((data.price / data.sale_price) * 100)}% off
+              {100 - Math.floor((data.price / data.sale_price) * 100)}% off
             </span>
           </div>
           <h3 className="font-bold mb-3 text-sm">Khóa học gồm có:</h3>
@@ -169,14 +169,18 @@ function BoxInfo({
 function BoxSection({
   title,
   children,
+  isColumn = false,
 }: {
   title: string;
   children: React.ReactNode;
+  isColumn?: boolean;
 }) {
   return (
     <>
       <h2 className="font-bold text-xl mb-5">{title}</h2>
-      <div className="mb-10 flex items-center flex-wrap">{children}</div>
+      <div className={`mb-10 ${isColumn ? 'block' : 'flex items-center flex-wrap'}`}>
+        {children}
+      </div>
     </>
   );
 }
