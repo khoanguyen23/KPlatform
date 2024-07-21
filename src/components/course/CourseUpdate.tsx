@@ -29,6 +29,8 @@ import { updateCourse } from "@/lib/actions/course.actions";
 import { useImmer } from "use-immer";
 import { IconAdd } from "../icons";
 import { courseLevel, courseStatus } from "@/constants";
+import { UploadButton } from "@/utils/uploadthing";
+import Image from "next/image";
 
 const formSchema = z.object({
   title: z.string().min(10, "Tên khóa học phải có ít nhất 10 ký tự"),
@@ -110,6 +112,7 @@ const CourseUpdate = ({ data }: { data: ICourse }) => {
           },
           status: values.status,
           level: values.level,
+          image: values.image,
         },
       });
       if (values.slug) {
@@ -124,6 +127,7 @@ const CourseUpdate = ({ data }: { data: ICourse }) => {
       setIsSubmitting(false);
     }
   }
+  const imageWatch = form.watch("image");
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} autoComplete="off">
@@ -214,7 +218,29 @@ const CourseUpdate = ({ data }: { data: ICourse }) => {
               <FormItem>
                 <FormLabel>Ảnh đại diện</FormLabel>
                 <FormControl>
-                  <div className="h-[200px] bg-white rounded-md border border-gray-200"></div>
+                <>
+                    <div className="h-[200px] bg-white rounded-md border border-gray-200 flex items-center justify-center relative">
+                      {!imageWatch ? (
+                        <UploadButton
+                          endpoint="imageUploader"
+                          onClientUploadComplete={(res) => {
+                            // Do something with the response
+                            form.setValue("image", res[0].url);
+                          }}
+                          onUploadError={(error: Error) => {
+                            console.error(`ERROR! ${error.message}`);
+                          }}
+                        />
+                      ) : (
+                        <Image
+                          alt=""
+                          src={imageWatch}
+                          fill
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </div>
+                  </>
                 </FormControl>
                 <FormMessage />
               </FormItem>
