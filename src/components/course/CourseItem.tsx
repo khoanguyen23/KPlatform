@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconClock, IconEye, IconStar } from "../icons";
 import { ICourse } from "@/database/course.model";
+import { truncateText } from "@/lib/utils";
 const CourseItem = ({ data }: { data: ICourse }) => {
   const courseInfo = [
     {
@@ -19,12 +20,14 @@ const CourseItem = ({ data }: { data: ICourse }) => {
       ),
     },
   ];
+  
+  const defaultImage = 'https://utfs.io/f/082f1bac-4bfb-4321-a4c1-0f4298537f1c-l09vf.webp';
 
   return (
     <div className="bg-white dark:bg-grayDarker dark:border-opacity-10 border border-gray-200 p-4 rounded-2xl">
       <Link href={`/course/${data.slug}`} className="block h-[180px] relative">
         <Image
-          src="https://images.unsplash.com/photo-1716881763995-097b7a68ea3d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={data.image || defaultImage}
           alt=""
           width={300}
           height={200}
@@ -37,8 +40,8 @@ const CourseItem = ({ data }: { data: ICourse }) => {
         </span>
       </Link>
       <div className="pt-4">
-        <h3 className="font-bold text-lg mb-3">
-          {data.title}
+        <h3 className="font-bold text-md mb-3">
+          {truncateText((data.title),60)}
         </h3>
         <div className="flex items-center gap-3 mb-5 text-xs text-gray-500 dark:text-grayDark">
           {courseInfo.map((item, index) => (
