@@ -35,8 +35,8 @@ import Image from "next/image";
 const formSchema = z.object({
   title: z.string().min(10, "Tên khóa học phải có ít nhất 10 ký tự"),
   slug: z.string().optional(),
-  price: z.number().int().positive().optional(),
-  sale_price: z.number().int().positive().optional(),
+  price: z.number().int().nonnegative().optional(),
+  sale_price: z.number().int().nonnegative().optional(),
   intro_url: z.string().optional(),
   desc: z.string().optional(),
   image: z.string().optional(),
@@ -115,7 +115,7 @@ const CourseUpdate = ({ data }: { data: ICourse }) => {
           image: values.image,
         },
       });
-      if (values.slug) {
+      if (values.slug !== data.slug) {
         router.replace(`/manage/course/update?slug=${values.slug}`);
       }
       if (res?.success) {

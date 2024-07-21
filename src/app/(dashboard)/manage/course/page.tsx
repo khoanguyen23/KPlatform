@@ -1,5 +1,12 @@
-const page = () => {
-  return <div>Manage course</div>;
+import CourseManage from "@/components/course/CourseManage";
+
+const page = async () => {
+
+  return (
+    <>
+      <CourseManage></CourseManage>
+    </>
+  );
 };
 
 export default page;
