@@ -24,5 +24,6 @@ type TCreateCourseParams = {
 type TUpdateCourseParams = {
   slug: string;
   updateData: Partial<ICourse>;
+  path?: string;
 }
 export { TActiveLinkProps, TCreateUserParams, TMenuItem, TCreateCourseParams, TUpdateCourseParams};
