@@ -35,13 +35,13 @@ const CourseItem = ({ data }: { data: ICourse }) => {
           sizes="@media (min-width: 640px) 300px, 100vw"
           priority
         />
-        <span className="inline-block px-3 py-1 rounded-full absolute top-3 right-3 z-10 text-white font-medium bg-green-500 text-xs">
+        <span className="inline-block px-3 py-1 rounded-full absolute top-3 right-3 z-9 text-white font-medium bg-green-500 text-xs">
           New
         </span>
       </Link>
       <div className="pt-4">
         <h3 className="font-bold text-md mb-3">
-          {truncateText((data.title),60)}
+          {truncateText((data.title),55)}
         </h3>
         <div className="flex items-center gap-3 mb-5 text-xs text-gray-500 dark:text-grayDark">
           {courseInfo.map((item, index) => (

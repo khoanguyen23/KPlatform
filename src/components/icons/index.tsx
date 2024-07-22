@@ -10,3 +10,5 @@ export { default as IconUsers } from "./IconUsers";
 export { default as IconAdd } from "./IconAdd";
 export { default as IconDelete } from "./IconDelete";
 export { default as IconEdit } from "./IconEdit";
+export { default as IconSearch } from "./IconSearch";
+export { default as IconXCircle } from "./IconXCircle";

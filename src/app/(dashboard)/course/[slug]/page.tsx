@@ -5,6 +5,12 @@ import { courseLevelTitle } from "@/constants";
 import { getCourseBySlug } from "@/lib/actions/course.actions";
 import { ECourseStatus } from "@/types/enums";
 import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const page = async ({
   params,
@@ -102,12 +108,14 @@ const page = async ({
           ))}
         </BoxSection>
         <BoxSection title="Q.A">
-          {data.info.qa.map((qa, index) => (
-            <div key={index}>
-              <div>{qa.question}</div>
-              <div>{qa.answer}</div>
-            </div>
-          ))}
+          <Accordion type="single" collapsible className="w-full">
+            {data.info.qa.map((qa, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger>{qa.question}</AccordionTrigger>
+                <AccordionContent>{qa.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </BoxSection>
       </div>
       <div>
@@ -178,7 +186,11 @@ function BoxSection({
   return (
     <>
       <h2 className="font-bold text-xl mb-5">{title}</h2>
-      <div className={`mb-10 ${isColumn ? 'block' : 'flex items-center flex-wrap'}`}>
+      <div
+        className={`mb-10 ${
+          isColumn ? "block" : "flex items-center flex-wrap"
+        }`}
+      >
         {children}
       </div>
     </>
