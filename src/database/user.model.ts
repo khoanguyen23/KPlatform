@@ -12,6 +12,7 @@ export interface IUser extends Document {
   status: EUserStatus;
   role: EUserRole;
   created_at: Date;
+  expertRequest: boolean;
 }
 const userSchema = new Schema<IUser>({
   clerkId: {
@@ -52,6 +53,10 @@ const userSchema = new Schema<IUser>({
     type: String,
     enum: Object.values(EUserStatus),
     default: EUserStatus.ACTIVE,
+  },
+  expertRequest: {
+    type: Boolean,
+    default: false,
   },
 });
 const User = models.User || model<IUser>("User", userSchema);

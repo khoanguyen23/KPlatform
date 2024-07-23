@@ -12,7 +12,7 @@ const page = async () => {
   return (
     <>
       <Heading>Tạo khóa học mới</Heading>
-      <CourseAddNew user={JSON.parse(JSON.stringify(mongoUser))}></CourseAddNew>
+      <CourseAddNew user={mongoUser}></CourseAddNew>
     </>
   );
 };

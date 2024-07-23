@@ -1,4 +1,5 @@
 import {
+  IconAccount,
   IconComment,
   IconExplore,
   IconOrder,
@@ -39,6 +40,16 @@ export const menuItems: TMenuItem[] = [
     url: "/manage/comment",
     title: "Quản lý bình luận",
     icon: <IconComment className="size-5" />,
+  },
+  {
+    url: "/manage/account",
+    title: "Tài khoản",
+    icon: <IconAccount className="size-5" />,
+  },
+  {
+    url: "/manage/colaborator",
+    title: "Cộng tác",
+    icon: <IconUsers className="size-5" />,
   },
 ];
 
