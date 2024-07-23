@@ -1,10 +1,9 @@
-"use client"
-
+"use client";
 import { IUser } from "@/database/user.model";
 import { approveExpert, getUsersWithExpertRequests } from "@/lib/actions/user.actions";
 import { useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [users, setUsers] = useState<IUser[]>([]);
   useEffect(() => {
     const fetchUsers = async () => {
@@ -39,4 +38,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

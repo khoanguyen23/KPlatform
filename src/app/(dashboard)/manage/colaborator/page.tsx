@@ -6,7 +6,7 @@ import { getUserInfo, requestExpert } from "@/lib/actions/user.actions";
 import { EUserRole } from "@/types/enums";
 
 
-const page = () => {
+const Page = () => {
   const [isExpertRequested, setIsExpertRequested] = useState(false);
   const [isExpert, setIsExpert] = useState(false);
 
@@ -55,4 +55,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
