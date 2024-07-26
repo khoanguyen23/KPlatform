@@ -40,7 +40,7 @@ const CourseItem = ({ data }: { data: ICourse }) => {
         </span>
       </Link>
       <div className="pt-4">
-        <h3 className="font-bold text-md mb-3">
+        <h3 className="font-bold text-md mb-3 h-12 overflow-hidden">
           {truncateText((data.title),55)}
         </h3>
         <div className="flex items-center gap-3 mb-5 text-xs text-gray-500 dark:text-grayDark">
