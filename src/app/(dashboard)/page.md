@@ -1,4 +1,4 @@
-import { CourseGrid } from "@/components/common";
+<!-- import { CourseGrid } from "@/components/common";
 import CourseItem from "@/components/course/CourseItem";
 import Heading from "@/components/typography/Heading";
 import { getAllCourse } from "@/lib/actions/course.actions";
@@ -27,4 +27,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default page; -->
