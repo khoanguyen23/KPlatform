@@ -3,14 +3,7 @@ import { Navbar } from "@/components/common/Navbar";
 import { Feature } from "@/components/common/Feature";
 
 const page = () => {
-  return (
-    <>
-      <Navbar />
-    <div className="p-10">
-      <Feature />
-    </div>
-    </> 
-  );
+  return <Feature />;
 };
 
 export default page;

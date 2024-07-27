@@ -13,7 +13,7 @@ import { ECourseLevel, ECourseStatus } from "@/types/enums";
 export const menuItems: TMenuItem[] = [
   {
     url: "/",
-    title: "Khám phá",
+    title: "Trang chủ",
     icon: <IconPlay className="size-5" />,
   },
   {
