@@ -13,8 +13,8 @@ export const Navbar = () => {
     },
     {
       id: 2,
-      link: "Giới thiệu",
-      path: "/",
+      link: "Resources",
+      path: "resources",
     },
     {
       id: 3,
@@ -23,8 +23,8 @@ export const Navbar = () => {
     },
     {
       id: 4,
-      link: "experience",
-      path: "/",
+      link: "project",
+      path: "project",
     },
     {
       id: 5,
@@ -33,7 +33,7 @@ export const Navbar = () => {
     },
   ];
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-white shadow-md">
+    <div className="flex justify-between items-center w-full h-20 px-4 text-white shadow-md fixed z-50 bg-white/70 backdrop-blur-md">
       <div className="p-10">
         {/* <h1 className="text-5xl font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}
         <h1 className="text-5xl font-signature ml-2">
