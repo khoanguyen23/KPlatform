@@ -6,11 +6,13 @@ import CourseItem from "../course/CourseItem";
 export const Feature = async () => {
   const courses = (await getAllCourse()) || [];
   return (
-    <CourseGrid>
+   <div className="py-20">
+     <CourseGrid>
       {courses?.length > 0 &&
         courses?.map((item) => (
           <CourseItem key={item.slug} data={item}></CourseItem>
         ))}
     </CourseGrid>
+   </div>
   );
 };
