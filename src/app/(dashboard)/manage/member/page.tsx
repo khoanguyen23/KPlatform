@@ -1,6 +1,12 @@
 "use client";
+import Heading from "@/components/common/Heading";
+import { Button } from "@/components/ui/button";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"; // Ensure you have these components from Shadcn UI
 import { IUser } from "@/database/user.model";
-import { approveExpert, getUsersWithExpertRequests } from "@/lib/actions/user.actions";
+import {
+  approveExpert,
+  getUsersWithExpertRequests,
+} from "@/lib/actions/user.actions";
 import { useEffect, useState } from "react";
 
 const Page = () => {
@@ -16,24 +22,38 @@ const Page = () => {
   const handleApprove = async (clerkId: string) => {
     try {
       await approveExpert({ clerkId });
-      setUsers(users.filter(user => user.clerkId !== clerkId));
+      setUsers(users.filter((user) => user.clerkId !== clerkId));
     } catch (error) {
       console.error(error);
-      alert('Failed to approve expert request.');
+      alert("Failed to approve expert request.");
     }
   };
 
   return (
     <div>
-      <h1>Manage Users</h1>
-      <ul>
-        {users.map(user => (
-          <li key={user.clerkId}>
-            {user.username} - {user.email}
-            <button onClick={() => handleApprove(user.clerkId)}>Approve as Expert</button>
-          </li>
-        ))}
-      </ul>
+        <Heading className="mb-10 ml-2">Quản lý người dùng</Heading>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Username</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {users.map((user) => (
+            <TableRow key={user.clerkId}>
+              <TableCell>{user.username}</TableCell>
+              <TableCell>{user.email}</TableCell>
+              <TableCell>
+                <Button onClick={() => handleApprove(user.clerkId)}>
+                  Approve as Expert
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 };

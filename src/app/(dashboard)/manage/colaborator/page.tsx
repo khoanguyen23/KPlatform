@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const invoices = [
   {
@@ -175,7 +176,11 @@ const Page = () => {
                     {invoice.invoice}
                   </TableCell>
                   <TableCell>
-                    <Link legacyBehavior href={`${invoice.paymentStatus}`} passHref>
+                    <Link
+                      legacyBehavior
+                      href={`${invoice.paymentStatus}`}
+                      passHref
+                    >
                       <a target="_blank">Link</a>
                     </Link>
                   </TableCell>
@@ -197,13 +202,16 @@ const Page = () => {
       ) : (
         <div>
           {isExpert ? (
-            <p>You are an expert.</p>
+          <div className="border p-4 w-72 rounded-md flex items-center space-x-4">
+            <p className="bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent text-2xl font-bold">You are an expert</p>
+            <p>😎</p>
+            </div>
           ) : isExpertRequested ? (
-            <p>Your request to become an expert is pending approval.</p>
+            <p className="border-2 p-2 w-72 border-dashed border-indigo-700">Your request to become an expert is <span className="font-bold">pending approval</span>.</p>
           ) : (
-            <button onClick={handleExpertRequest}>
+            <Button onClick={handleExpertRequest}>
               Request to become an Expert
-            </button>
+            </Button>
           )}
         </div>
       )}
