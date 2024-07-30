@@ -26,7 +26,7 @@ const page = async ({
   if (data.status !== ECourseStatus.APPROVED) return <PageNotFound />;
   const videoId = data.intro_url?.split("v=")[1];
   return (
-    <div className="grid lg:grid-cols-[2fr,1fr] gap-10 min-h-screen">
+    <div className="grid lg:grid-cols-[2fr,1fr] gap-10 min-h-screen py-20">
       <div>
         <div className="relative aspect-video mb-5">
           {data.intro_url ? (
