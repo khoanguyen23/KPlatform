@@ -2,6 +2,8 @@ import { Input } from "@/components/ui/input";
 import React from "react";
 import { auth } from "@clerk/nextjs/server";
 import { getUserInfo } from "@/lib/actions/user.actions";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 const page = async () => {
   const { userId } = auth();
   console.log(userId, "account page");
@@ -14,7 +16,7 @@ const page = async () => {
     );
   }
   const user = await getUserInfo({ userId });
-  console.log(user, "from account page")
+  console.log(user, "from account page");
   return (
     <form>
       <div className="space-y-12">
@@ -38,13 +40,13 @@ const page = async () => {
               <div className="mt-2">
                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
-                    workcation.com/
+                    kplatform.vercel.app/
                   </span>
                   <input
                     id="username"
                     name="username"
                     type="text"
-                    placeholder="janesmith"
+                    placeholder={user?.name}
                     autoComplete="username"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
@@ -80,6 +82,10 @@ const page = async () => {
               >
                 Photo
               </label>
+              <Avatar>
+                <AvatarImage src={user?.avatar} />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
               <div className="mt-2 flex items-center gap-x-3">
                 {/* <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" /> */}
                 <button

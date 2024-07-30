@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ucademy",
-  description: "Nền tảng học lập trình trực tuyến siêu cấp vip pro",
+  title: "KPlatform",
+  description: "Kplatform cung cấp mọi kiến thức",
 };
 
 export default function RootLayout({
