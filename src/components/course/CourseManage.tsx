@@ -19,6 +19,8 @@ import Swal from "sweetalert2";
 import { updateCourse } from "@/lib/actions/course.actions";
 import { ECourseStatus } from "@/types/enums";
 import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 const IconArrowLeft = (
   <svg
@@ -106,12 +108,21 @@ const CourseManage = ({ data }: { data: ICourse[] }) => {
       console.log(error);
     }
   };
+
+  const router = useRouter();
+
+  const navigateToNewCourse = () => {
+    router.push('/manage/course/new');
+  };
+
+
   return (
     <div>
       <div className="flex items-center justify-between mb-10">
         <Heading className="">Quản lý khóa học</Heading>
-        <div className="w-[300px]">
+        <div className="w-[500px] flex space-x-4">
           <Input placeholder="Tìm kiếm khóa học..." />
+          <Button onClick={navigateToNewCourse} className="bg-primary hover:bg-primary-dark hover:opacity-80 text-white">Thêm khóa học</Button>
         </div>
       </div>
       <Table>

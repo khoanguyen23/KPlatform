@@ -22,4 +22,9 @@ enum ELessonType {
   VIDEO = "VIDEO",
   TEXT = "TEXT",
 }
-export { ECourseLevel, ECourseStatus, ELessonType, EUserRole, EUserStatus };
+enum EProjectType {
+  WEB = "WEB",
+  MOBILE = "MOBILE",
+  DESKTOP = "DESKTOP",
+}
+export { ECourseLevel, ECourseStatus, ELessonType, EUserRole, EUserStatus, EProjectType };

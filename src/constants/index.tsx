@@ -27,6 +27,11 @@ export const menuItems: TMenuItem[] = [
     icon: <IconExplore className="size-5" />,
   },
   {
+    url: "/manage/project",
+    title: "Quản lý project",
+    icon: <IconExplore className="size-5" />,
+  },
+  {
     url: "/manage/member",
     title: "Quản lý thành viên",
     icon: <IconUsers className="size-5" />,

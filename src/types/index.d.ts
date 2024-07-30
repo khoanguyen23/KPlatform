@@ -1,3 +1,5 @@
+import { IProject } from "@/database/project.model";
+
 type TActiveLinkProps = {
   url: string;
   children: React.ReactNode;
@@ -15,6 +17,11 @@ type TCreateUserParams = {
   name?: string;
   avatar?: string;
 };
+// Project 
+type TCreateProjectParams = {
+  title : string;
+  slug: string;
+}
 // Course
 type TCreateCourseParams = {
   title : string;
@@ -26,4 +33,9 @@ type TUpdateCourseParams = {
   updateData: Partial<ICourse>;
   path?: string;
 }
-export { TActiveLinkProps, TCreateUserParams, TMenuItem, TCreateCourseParams, TUpdateCourseParams};
+type TUpdateProjectParams = {
+  slug: string;
+  updateData: Partial<IProject>;
+  path?: string;
+}
+export { TActiveLinkProps, TCreateUserParams,TCreateProjectParams,TUpdateProjectParams, TMenuItem, TCreateCourseParams, TUpdateCourseParams};
