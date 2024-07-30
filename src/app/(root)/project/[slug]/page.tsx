@@ -102,7 +102,7 @@ const page = async ({
                     </a>
                   </p>
                   <p className="mt-5 leading-7 text-slate-700 dark:text-slate-300">
-                    Also, don't forget to explore the{" "}
+                    Also, don&apos;t forget to explore the{" "}
                     <a
                       className="font-medium underline underline-offset-4 text-sky-500"
                       href="/learnReact"
