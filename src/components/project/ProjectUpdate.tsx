@@ -55,6 +55,7 @@ const formSchema = z.object({
     )
     .optional(),
   developmentPeriod: z.string().optional(),
+  image: z.string().optional(),
 });
 
 type FormSchema = z.infer<typeof formSchema>;
@@ -68,11 +69,13 @@ const ProjectUpdate = ({ data }: { data: IProject }) => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [teamRoles, setTeamRoles] = useImmer<TeamRole[]>(data.teamRoles || []);
+
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: data.title,
       slug: data.slug,
+      image: data.image,
       type: data.type,
       date: data.date,
       view: data.views,
@@ -96,6 +99,7 @@ const ProjectUpdate = ({ data }: { data: IProject }) => {
           slug: values.slug,
           date: values.date,
           type: values.type,
+          image: values.image,
           views: values.view,
           youtubeUrl: values.youtubeUrl,
           description: values.description,
@@ -121,6 +125,7 @@ const ProjectUpdate = ({ data }: { data: IProject }) => {
       setIsSubmitting(false);
     }
   }
+  const imageWatch = form.watch("image");
 
   return (
     <Form {...form}>
@@ -160,6 +165,40 @@ const ProjectUpdate = ({ data }: { data: IProject }) => {
                 <FormLabel>Ngày tạo</FormLabel>
                 <FormControl>
                   <Input type="date" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="image"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Ảnh đại diện</FormLabel>
+                <FormControl>
+                  <>
+                    <div className="h-[200px] bg-white rounded-md border border-gray-200 flex items-center justify-center relative">
+                      {!imageWatch ? (
+                        <UploadButton
+                          endpoint="imageUploader"
+                          onClientUploadComplete={(res) => {
+                            form.setValue("image", res[0].url);
+                          }}
+                          onUploadError={(error: Error) => {
+                            console.error(`ERROR! ${error.message}`);
+                          }}
+                        />
+                      ) : (
+                        <Image
+                          alt=""
+                          src={imageWatch}
+                          fill
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </div>
+                  </>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -265,102 +304,112 @@ const ProjectUpdate = ({ data }: { data: IProject }) => {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="teamSize"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Kích thước đội ngũ</FormLabel>
-                <FormControl>
-                  <Input type="number" placeholder="5" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-         <FormField
+<FormField
   control={form.control}
-  name="teamRoles"
+  name="teamSize"
   render={({ field }) => (
     <FormItem>
-      <FormLabel>Vai trò đội ngũ</FormLabel>
-      <div className="space-y-4">
-        {teamRoles.map((role, roleIndex) => (
-          <div key={roleIndex} className="space-y-2">
-            <div className="flex space-x-4">
-              <Input
-                placeholder="Tên vai trò"
-                value={role.name}
-                onChange={(e) => {
-                  setTeamRoles((draft) => {
-                    draft[roleIndex].name = e.target.value;
-                  });
-                }}
-              />
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setTeamRoles((draft) => {
-                    draft.splice(roleIndex, 1);
-                  });
-                }}
-              >
-                Xóa vai trò
-              </Button>
-            </div>
-            <div className="space-y-2">
-              {role.responsibilities.map((resp, respIndex) => (
-                <div key={respIndex} className="flex space-x-4">
-                  <Textarea
-                    placeholder="Trách nhiệm"
-                    value={resp}
-                    onChange={(e) => {
-                      setTeamRoles((draft) => {
-                        draft[roleIndex].responsibilities[respIndex] = e.target.value;
-                      });
-                    }}
-                  />
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      setTeamRoles((draft) => {
-                        draft[roleIndex].responsibilities.splice(respIndex, 1);
-                      });
-                    }}
-                  >
-                    Xóa trách nhiệm
-                  </Button>
-                </div>
-              ))}
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setTeamRoles((draft) => {
-                    draft[roleIndex].responsibilities.push("");
-                  });
-                }}
-              >
-                <IconAdd className="h-4 w-4" /> Thêm trách nhiệm
-              </Button>
-            </div>
-          </div>
-        ))}
-        <Button
-          variant="outline"
-          className="mt-4"
-          onClick={() =>
-            setTeamRoles((draft) => {
-              draft.push({ name: "", responsibilities: [""] });
-            })
-          }
-        >
-          <IconAdd className="h-4 w-4" /> Thêm vai trò
-        </Button>
-      </div>
+      <FormLabel>Kích thước đội ngũ</FormLabel>
+      <FormControl>
+        <Input 
+          type="number" 
+          placeholder="5" 
+          {...field} 
+          onChange={(e) => field.onChange(Number(e.target.value))} 
+        />
+      </FormControl>
       <FormMessage />
     </FormItem>
   )}
 />
+
+          <FormField
+            control={form.control}
+            name="teamRoles"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Vai trò đội ngũ</FormLabel>
+                <div className="space-y-4">
+                  {teamRoles.map((role, roleIndex) => (
+                    <div key={roleIndex} className="space-y-2">
+                      <div className="flex space-x-4">
+                        <Input
+                          placeholder="Tên vai trò"
+                          value={role.name}
+                          onChange={(e) => {
+                            setTeamRoles((draft) => {
+                              draft[roleIndex].name = e.target.value;
+                            });
+                          }}
+                        />
+                        <Button
+                          variant="outline"
+                          onClick={() => {
+                            setTeamRoles((draft) => {
+                              draft.splice(roleIndex, 1);
+                            });
+                          }}
+                        >
+                          Xóa vai trò
+                        </Button>
+                      </div>
+                      <div className="space-y-2">
+                        {role.responsibilities.map((resp, respIndex) => (
+                          <div key={respIndex} className="flex space-x-4">
+                            <Textarea
+                              placeholder="Trách nhiệm"
+                              value={resp}
+                              onChange={(e) => {
+                                setTeamRoles((draft) => {
+                                  draft[roleIndex].responsibilities[respIndex] =
+                                    e.target.value;
+                                });
+                              }}
+                            />
+                            <Button
+                              variant="outline"
+                              onClick={() => {
+                                setTeamRoles((draft) => {
+                                  draft[roleIndex].responsibilities.splice(
+                                    respIndex,
+                                    1
+                                  );
+                                });
+                              }}
+                            >
+                              Xóa trách nhiệm
+                            </Button>
+                          </div>
+                        ))}
+                        <Button
+                          variant="outline"
+                          onClick={() => {
+                            setTeamRoles((draft) => {
+                              draft[roleIndex].responsibilities.push("");
+                            });
+                          }}
+                        >
+                          <IconAdd className="h-4 w-4" /> Thêm trách nhiệm
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                  <Button
+                    variant="outline"
+                    className="mt-4"
+                    onClick={() =>
+                      setTeamRoles((draft) => {
+                        draft.push({ name: "", responsibilities: [""] });
+                      })
+                    }
+                  >
+                    <IconAdd className="h-4 w-4" /> Thêm vai trò
+                  </Button>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="developmentPeriod"

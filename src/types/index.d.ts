@@ -22,6 +22,11 @@ type TCreateProjectParams = {
   title : string;
   slug: string;
 }
+type TUpdateProjectParams = {
+  slug: string;
+  updateData: Partial<IProject>;
+  path?: string;
+}
 // Course
 type TCreateCourseParams = {
   title : string;
@@ -33,9 +38,5 @@ type TUpdateCourseParams = {
   updateData: Partial<ICourse>;
   path?: string;
 }
-type TUpdateProjectParams = {
-  slug: string;
-  updateData: Partial<IProject>;
-  path?: string;
-}
+
 export { TActiveLinkProps, TCreateUserParams,TCreateProjectParams,TUpdateProjectParams, TMenuItem, TCreateCourseParams, TUpdateCourseParams};

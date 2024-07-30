@@ -5,6 +5,7 @@ export interface IProject extends Document {
     _id: string;
     title: string;
     type: EProjectType;
+    image: string;
     date: string;
     views: number;
     youtubeUrl: string;
@@ -29,6 +30,10 @@ const projectSchema = new Schema<IProject>({
     slug: {
         type: String,
         required: true,
+    },
+    image: {
+        type: String,
+        default: "",
     },
     type: {
         type: String,

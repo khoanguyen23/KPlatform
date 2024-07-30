@@ -33,7 +33,7 @@ export const Navbar = () => {
     },
   ];
   return (
-    <div className="flex top-0 justify-between items-center w-full h-20 px-4 text-white shadow-md fixed z-50 bg-white/70 backdrop-blur-md">
+    <div className="flex top-0 justify-between items-center w-full h-[48px] px-4 text-white shadow-md fixed z-50 bg-white/70 backdrop-blur-md">
       <div className="p-10">
         {/* <h1 className="text-5xl font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}
         <h1 className="text-5xl font-signature ml-2">

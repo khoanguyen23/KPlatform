@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="flex flex-col md:flex-row items-start py-10">
+    <main className="flex flex-col md:flex-row items-start py-14">
       <div className="w-full md:w-4/5">
       <div className="z-10">
         {children}
