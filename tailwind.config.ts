@@ -33,6 +33,24 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    container: {
+      padding: "1.5rem",
+      center: true,
+    },
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1160px',
+      // => @media (min-width: 1280px) { ... }
+
+    }
   },
   plugins: [require("tailwindcss-animate")],
 };

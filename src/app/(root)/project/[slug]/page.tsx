@@ -1,5 +1,6 @@
 import { getProjectBySlug } from "@/lib/actions/project.actions";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = async ({
   params,
@@ -121,6 +122,7 @@ const page = async ({
                 </div>
               </div>
             </div>
+            <p className="mt-5 leading-7 text-slate-700 dark:text-slate-300">Go back to <Link className="font-medium underline underline-offset-4 text-sky-500" href="/project">Projects</Link></p>
           </div>
         </div>
       </section>

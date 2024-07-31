@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer base {
   body {
-    @apply bg-white dark:bg-grayDarkest dark:text-white text-grayDarkest;
+    @apply bg-white dark:bg-slate-950 dark:text-neutral-200 text-grayDarkest;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
