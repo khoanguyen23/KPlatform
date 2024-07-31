@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, forwardRef, ForwardedRef } from "react";
+import React, { useState, forwardRef, ForwardedRef, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,12 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+import { useAuth, UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { getUserInfo } from "@/lib/actions/user.actions";
+import { EUserRole } from "@/types/enums";
 
 const components = [
   {
@@ -83,7 +89,8 @@ const ListItem = React.forwardRef<
   }
 );
 ListItem.displayName = "ListItem";
-export function NavigationMenuDemo() {
+export function NavigationMenuDemo({ userRole }: { userRole: string | null }) {
+  
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -150,105 +157,103 @@ export function NavigationMenuDemo() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/manage/account" legacyBehavior passHref>
+          <Link href="/course" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Admin
+              Course
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        
+       
+         <NavigationMenuItem>
+          <Link href="/requestExpert" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Become Expert
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        {userRole === EUserRole.ADMIN && (
+          <NavigationMenuItem>
+            <Link href="/manage/account" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Dashboard
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        )}
+      
       </NavigationMenuList>
     </NavigationMenu>
   );
 }
 
-export const Navbar = () => {
+export const Navbar =  () => {
+  const router = useRouter();
+  const { userId } = useAuth();
   const [nav, setNav] = useState(false);
-  const links = [
-    {
-      id: 1,
-      link: "Trang chủ",
-      path: "/",
-    },
-    {
-      id: 2,
-      link: "Resources",
-      path: "/resources",
-    },
-    {
-      id: 3,
-      link: "Portfolio",
-      path: "/portfolio",
-    },
-    {
-      id: 4,
-      link: "Project",
-      path: "/project",
-    },
-    {
-      id: 5,
-      link: "Admin",
-      path: "/manage/account",
-    },
-  ];
+  const [userRole, setUserRole] = useState<string | null>(null);
+
+  const navigateToLogin = () => {
+    router.push("/sign-in");
+  };
+  useEffect(() => {
+    if (userId) {
+      getUserInfo({ userId }).then((userData) => {
+        if (userData) {
+          setUserRole(userData.role);
+        }
+      });
+    }
+  }, [userId]);
 
   return (
     <header className="fixed top-0 z-40 w-full border-b border-b-slate-200 bg-white/70 backdrop-blur-md dark:border-b-slate-800 dark:bg-slate-900/70">
       <div className="container flex h-[48px] items-center space-x-4 justify-between sm:space-x-0">
         <div className="gap-6 md:gap-10 flex">
           <Link href="/" className="hidden items-center space-x-2 sm:flex">
-            <span className="text-primary">K</span>
-            <span className="hidden font-bold sm:inline-block">platform</span>
+            <span className="text-primary text-3xl">K</span>
+            <span className="hidden font-bold sm:inline-block">
+              Code with Khoa
+            </span>
           </Link>
           {/* Navigation */}
-          <NavigationMenuDemo />
+          <NavigationMenuDemo userRole={userRole} />
         </div>
-        <div className="flex items-center lg:gap-6"></div>
-      </div>
-      {/* <div className="p-10">
-        <h1 className="text-5xl font-signature ml-2">
-          <a
-            href="/"
-            className="font-bold text-3xl inline-block mb-5 h-10 self-start"
-          >
-            <span className="text-primary">K</span>
-            <span className="text-2xl font-semibold text-black dark:text-white">platform</span>
-          </a>
-        </h1>
-      </div>
-
-      <ul className="hidden md:flex">
-        {links.map(({ id, link, path }) => (
-          <li
-            key={id}
-            className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-primary duration-200 link-underline dark:hover:text-slate-50 dark:text-slate-200"
-          >
-            <Link href={path}>{link}</Link>
-          </li>
-        ))}
-      </ul>
-
-      <div
-        onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
-      >
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </div>
-
-      {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500 z-10">
-          {links.map(({ id, link, path }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl"
+        <div className="flex items-center lg:gap-6">
+          <Button variant="outline" className="h-8 w-64 justify-between">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="w-5 h-5 lg:w-4 lg:h-4"
             >
-              <Link onClick={() => setNav(!nav)} href={path}>
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )} */}
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+            <span className="hidden lg:inline-flex font-normal text-sm">
+              Search resources
+            </span>
+          <div className="hidden lg:flex items-center gap-1 text-sm font-medium ">
+          <p className="text-sm text-muted-foreground">
+        Press{" "}
+        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+          <span className="text-xs">⌘</span>J
+        </kbd>
+      </p>
+          </div>
+          </Button>
+          {!userId ? (
+         <Button className="h-8" onClick={navigateToLogin}>Sign in</Button>
+        ) : (
+          <UserButton />
+        )}
+        </div>
+      </div>
     </header>
   );
 };
