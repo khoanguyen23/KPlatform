@@ -90,7 +90,6 @@ const ListItem = React.forwardRef<
 );
 ListItem.displayName = "ListItem";
 export function NavigationMenuDemo({ userRole }: { userRole: string | null }) {
-  
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -163,14 +162,15 @@ export function NavigationMenuDemo({ userRole }: { userRole: string | null }) {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-       
-         <NavigationMenuItem>
-          <Link href="/requestExpert" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Become Expert
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+        {(userRole === EUserRole.USER || userRole === EUserRole.EXPERT) && (
+          <NavigationMenuItem>
+            <Link href="/requestExpert" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Become Expert
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        )}
         {userRole === EUserRole.ADMIN && (
           <NavigationMenuItem>
             <Link href="/manage/account" legacyBehavior passHref>
@@ -180,13 +180,12 @@ export function NavigationMenuDemo({ userRole }: { userRole: string | null }) {
             </Link>
           </NavigationMenuItem>
         )}
-      
       </NavigationMenuList>
     </NavigationMenu>
   );
 }
 
-export const Navbar =  () => {
+export const Navbar = () => {
   const router = useRouter();
   const { userId } = useAuth();
   const [nav, setNav] = useState(false);
@@ -238,20 +237,22 @@ export const Navbar =  () => {
             <span className="hidden lg:inline-flex font-normal text-sm">
               Search resources
             </span>
-          <div className="hidden lg:flex items-center gap-1 text-sm font-medium ">
-          <p className="text-sm text-muted-foreground">
-        Press{" "}
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-          <span className="text-xs">⌘</span>J
-        </kbd>
-      </p>
-          </div>
+            <div className="hidden lg:flex items-center gap-1 text-sm font-medium ">
+              <p className="text-sm text-muted-foreground">
+                Press{" "}
+                <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                  <span className="text-xs">⌘</span>J
+                </kbd>
+              </p>
+            </div>
           </Button>
           {!userId ? (
-         <Button className="h-8" onClick={navigateToLogin}>Sign in</Button>
-        ) : (
-          <UserButton />
-        )}
+            <Button className="h-8" onClick={navigateToLogin}>
+              Sign in
+            </Button>
+          ) : (
+            <UserButton />
+          )}
         </div>
       </div>
     </header>
