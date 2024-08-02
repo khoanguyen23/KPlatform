@@ -162,6 +162,13 @@ export function NavigationMenuDemo({ userRole }: { userRole: string | null }) {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/conversion/image-converter" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Image Coverter
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
         {(userRole === EUserRole.USER || userRole === EUserRole.EXPERT) && (
           <NavigationMenuItem>
             <Link href="/requestExpert" legacyBehavior passHref>

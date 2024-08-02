@@ -5,9 +5,11 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
-    <div className="px-4">
-      {children}
-    </div>
+      <div className="text-neutral-800 bg-white dark:text-neutral-200 dark:bg-slate-950">
+        <main className="px-4 w-full xl:max-w-screen-2xl md:mx-auto">
+        {children}
+        </main>
+      </div>
     </>
   );
 };
