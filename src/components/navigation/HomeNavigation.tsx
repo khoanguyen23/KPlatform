@@ -1,22 +1,28 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import debounce from 'lodash/debounce';
 import { IconContact, IconExperiences, IconHome, IconProject } from '../icons';
 import styles from './navbar.module.scss';
 
+interface NavItemsRefs {
+  home: React.RefObject<HTMLLIElement>;
+  experiences: React.RefObject<HTMLLIElement>;
+  projects: React.RefObject<HTMLLIElement>;
+  contact: React.RefObject<HTMLLIElement>;
+}
+
 const Navigation: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<string>('home');
+  const [activeSection, setActiveSection] = useState<keyof NavItemsRefs>('home');
   const navbarRef = useRef<HTMLElement>(null);
-  const navItemsRef = useRef<Record<string, React.RefObject<HTMLLIElement>>>({
+  const navItemsRef = useRef<NavItemsRefs>({
     home: useRef(null),
     experiences: useRef(null),
     projects: useRef(null),
     contact: useRef(null)
   });
 
-  const updateActiveIndicator = useCallback((section: string): void => {
+  const updateActiveIndicator = useCallback((section: keyof NavItemsRefs): void => {
     const activeNavItem = navItemsRef.current[section]?.current;
     if (activeNavItem && navbarRef.current) {
       const { offsetTop, offsetHeight } = activeNavItem;
@@ -25,7 +31,7 @@ const Navigation: React.FC = () => {
     }
   }, []);
 
-  const handleNavClick = useCallback((sectionId: string): void => {
+  const handleNavClick = useCallback((sectionId: keyof NavItemsRefs): void => {
     setActiveSection(sectionId);
     updateActiveIndicator(sectionId);
     const element = document.getElementById(sectionId);
@@ -39,8 +45,8 @@ const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = debounce((): void => {
-      const sections = ['home', 'experiences', 'projects', 'contact'];
-      let currentSection = 'home';
+      const sections: (keyof NavItemsRefs)[] = ['home', 'experiences', 'projects', 'contact'];
+      let currentSection: keyof NavItemsRefs = 'home';
 
       for (const section of sections) {
         const sectionElement = document.getElementById(section);
@@ -64,7 +70,7 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeSection, updateActiveIndicator]);
 
-  const renderNavItem = (id: string, Icon: JSX.Element, label: string) => (
+  const renderNavItem = (id: keyof NavItemsRefs, Icon: JSX.Element, label: string) => (
     <li ref={navItemsRef.current[id]} key={id}>
       <a href={`#${id}`} onClick={() => handleNavClick(id)}
          className={activeSection === id ? styles.active : ''}>
