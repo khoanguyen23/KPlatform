@@ -1,9 +1,15 @@
+@import "../styles/theme.scss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer base {
+  // bg-[url('/image/04.jpg')]  bg-contain bg-right bg-repeat
+  * {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-[url('/image/04.jpg')] bg-center bg-cover bg-no-repeat dark:bg-slate-950 dark:text-neutral-200 text-grayDarkest;
+    @apply   dark:bg-slate-950 dark:text-neutral-200 text-grayDarkest;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
