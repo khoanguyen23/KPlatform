@@ -29,7 +29,7 @@ const Home = () => {
           Online.
         </div>
        <div className="relative w-full h-1">
-       <div className="w-28 h-28 rounded-full object-cover overflow-hidden absolute right-0 top-2">
+       <div className="avatar w-28 h-28  rounded-full object-cover overflow-hidden absolute right-0">
           <Image
             src={"/image/avt-1.jpg"}
             alt={""}

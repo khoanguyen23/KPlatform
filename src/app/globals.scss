@@ -25,9 +25,16 @@
     position: absolute;
     animation: float-top-bottom 6s ease-in-out infinite;
   }
+ 
   .img-animate {
     display: flex;
     animation: moveLeft 30s linear infinite;
+  }
+
+  @media screen and (max-width: 768px) {
+   .avatar {
+    top : -40px ;
+   }
   }
   @keyframes moveLeft {
     0% {
