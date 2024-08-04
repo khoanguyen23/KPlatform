@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.0",
     "@clerk/nextjs": "^5.2.2",
     "@hookform/resolvers": "^3.9.0",
     "@nextui-org/spinner": "^2.0.33",
@@ -26,6 +27,7 @@
     "file-saver": "^2.0.5",
     "filesize": "^10.1.4",
     "lodash": "^4.17.21",
+    "lottie-react": "^2.4.0",
     "lucide-react": "^0.390.0",
     "mongoose": "^8.4.1",
     "next": "14.2.3",

@@ -1,0 +1,55 @@
+[
+  {
+    "time": "June 2023 - Present",
+    "title": "Software Development Engineer - MISUMI Group Inc",
+    "description": [
+      "Develop EC and mobile websites for the company.",
+      "Cooperate and develop with development groups around the world.",
+      "Improve development efficiency with Datadog and CircleCi"
+    ],
+    "tags": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "SCSS",
+      "Redux",
+      "Datadog",
+      "CircleCI"
+    ]
+  },
+  {
+    "time": "Jun 2022 - Present",
+    "title": "Wordpress Developer - Freelance",
+    "description": [
+      "Expertise in WordPress and Elementor Pro: With extensive experience in WordPress development and a strong command of Elementor Pro, I am confident in my ability to create and style the pages to match your homepage seamlessly"
+    ],
+    "tags": [
+      "Wordpress",
+      "Elementor Pro",
+      "UI/UX",
+      "SEO"
+    ]
+  },
+  {
+    "time": "Aug 2023 - Oct 2023",
+    "title": "Front-end Intership - Sun* Inc",
+    "description": [
+      "Implement modern, interactive web application UIs with high requirements for quality and reliability",
+      "Work with modern technologies based on ES6, React, Redux",
+      "Work closely with the design team to find the most practical approach to develop new UIs",
+      "Actively discuss and advise on backend APIs",
+      "Actively deliver products quickly to customers",
+      "Research and argue for appropriate methods or technologies to solve problems"
+    ],
+    "tags": [
+      "ReactJS",
+      "HTML - CSS - JavaScript",
+      "PUG",
+      "Bootstrap",
+      "Redux",
+      "API",
+      "Bootstrap",
+      "SCSS/SASS"
+    ]
+  }
+]

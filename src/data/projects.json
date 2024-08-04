@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "name": "Portfolio",
+    "description": "My portfolio website features my experience, projects, and hobbies.",
+    "thumbnail": "https://utfs.io/f/88a39d95-a16f-423c-b39e-a3790b57603d-kt8nib.png",
+    "languages": [
+      "TypeScript",
+      "SCSS",
+      "Nextjs"
+    ],
+    "topics": [
+      "NextJS",
+      "Vercel"
+    ],
+    "repository": "https://github.com/khoanguyen23/CoursePlatform"
+  },
+  {
+    "id": "2",
+    "name": "Flora Website",
+    "description": "Flower sales website include CRUD operations and admin systems",
+    "thumbnail": "https://utfs.io/f/c71bb6d2-3050-4143-bbf7-488e92d86ead-kt8nia.png",
+    "languages": [
+      "Reactjs",
+      "Firebase",
+      "SCSS",
+      "Java"
+    ],
+    "topics": [
+      "ReactJS",
+      "Java",
+      "Firebase",
+      "SCSS",
+      "Spring Boot"
+    ],
+    "repository": "https://github.com/khoanguyen23/flowerStore"
+  },
+  {
+    "id": "3",
+    "name": "Restaurant Booking App",
+    "description": "A Booking Restaurant App, designed for admins and users, connects culinary passion with technology to streamline restaurant table reservations, enhancing service quality and creating memorable customer experiences",
+    "languages": [
+      "React Native",
+      "Node",
+      "Tailwind"
+    ],
+    "topics": [
+      "React Native",
+      "Node",
+      "GEO Location",
+      "Maps"
+    ],
+    "thumbnail": "https://utfs.io/f/dbe22afa-845e-4f88-b309-971f101fca1c-11sk86.jpg",
+    "repository": "https://github.com/khoanguyen23/BookingRes"
+  },
+  {
+    "id": "4",
+    "name": "Money App",
+    "description": "Our expense management app allows users to track their spending with pie charts and export data to CSV files",
+    "languages": [
+      "React Native",
+      "Firebase"
+    ],
+    "topics": [
+      "React Native",
+      "Money management"
+    ],
+    "thumbnail": "https://utfs.io/f/ffee499c-ecf6-4d1b-b5c5-a18cd4f7298f-6onb6k.jpg",
+    "repository": "https://github.com/khoanguyen23/ExpensesApp"
+  },
+  {
+    "id": "5",
+    "name": "Chatify UIT",
+    "description": "This is our project for the Azure OpenAI Service for Students Hackathon. Due to the limited timeframe, it's still a work in progress. Our team hopes that it can be of assistance to you in the future.",
+    "languages": [
+      "JavaScript",
+      "Node",
+      "Python",
+      "HTML",
+      "CSS"
+    ],
+    "topics": [
+      "Azure-OpenAI",
+      "Flask",
+      "Python"
+    ],
+    "thumbnail": "https://utfs.io/f/65b3870a-c8c9-427a-a0ca-b359a5fe5344-5j7dvj.jpg",
+    "repository": "https://github.com/khoanguyen23/Azure-OpenAI-"
+  }
+]

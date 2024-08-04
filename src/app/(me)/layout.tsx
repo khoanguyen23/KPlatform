@@ -13,7 +13,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         height={0}
         sizes="100vw"
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
-        style={{ width: "100%", height: "auto" }}
+        style={{ width: "100%", height: "100%" }}
       />
       <Navigation />
       {children}

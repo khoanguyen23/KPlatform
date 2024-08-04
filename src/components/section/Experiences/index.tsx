@@ -1,116 +1,25 @@
-import React from 'react'
+import Container from "@/components/cards/Container";
+import React from "react";
+import ContainerStyles from "../../../components/cards/Container/container.module.scss";
+import styles from "./experiences.module.scss";
+import Experience from "@/components/cards/Experience";
+import getAllExperiences from "@/lib/experience";
 
 const Experiences = () => {
+  const experiences = getAllExperiences();
   return (
-    <section id="experiences" className=''>
-    <h1 className="font-bold text-7xl bg-gradient-to-br from-orange-300  via-red-500 to-rose-300 bg-clip-text text-transparent">
-      This is Experiences heading
-    </h1>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <p className="text-white italic text-lg mt-5 ml-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-      quam enim fuga aliquid voluptatibus fugiat maiores explicabo! Quisquam
-      ex quia optio beatae hic quaerat esse minus ratione deleniti corporis.
-    </p>
-    <h2 className="bg-gradient-to-r from-blue-300 to-blue-800 bg-clip-text text-transparent text-4xl font-bold mt-10">
-      About me
-    </h2>
-  </section>
-  )
-}
+    <Container id={"experiences"} className={"experiences"}>
+      <div className={ContainerStyles.title}>
+        <h2>{"<Experiences/>"}</h2>
+        <hr />
+      </div>
+      <div className={styles["experiences-list"]}>
+        {experiences.map((experience, index) => (
+          <Experience key={index} experience={experience} />
+        ))}
+      </div>
+    </Container>
+  );
+};
 
-export default Experiences
+export default Experiences;
