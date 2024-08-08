@@ -87,7 +87,7 @@ const Home = () => {
           </p> */}
           <br />
           <p>
-            When I'm not coding, I usually play sports with friends and go
+            When I&apos;m not coding, I usually play sports with friends and go
             somewhere in the city to relax my mind.
           </p>
           <br />
