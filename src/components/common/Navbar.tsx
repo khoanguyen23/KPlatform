@@ -234,7 +234,7 @@ export const Navbar = () => {
               fill="none"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
+              strokeLinecap="round"
               stroke-linejoin="round"
               className="w-5 h-5 lg:w-4 lg:h-4"
             >
