@@ -1,23 +1,5 @@
 [
   {
-    "time": "June 2023 - Present",
-    "title": "Software Development Engineer - MISUMI Group Inc",
-    "description": [
-      "Develop EC and mobile websites for the company.",
-      "Cooperate and develop with development groups around the world.",
-      "Improve development efficiency with Datadog and CircleCi"
-    ],
-    "tags": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "SCSS",
-      "Redux",
-      "Datadog",
-      "CircleCI"
-    ]
-  },
-  {
     "time": "Jun 2022 - Present",
     "title": "Wordpress Developer - Freelance",
     "description": [

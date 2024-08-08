@@ -28,25 +28,22 @@ const Home = () => {
           <div className={styles["status-circle"]}></div>
           Online.
         </div>
-       <div className="relative w-full h-1">
-       <div className="avatar w-28 h-28  rounded-full object-cover overflow-hidden absolute right-0">
-          <Image
-            src={"/image/avt-1.jpg"}
-            alt={""}
-            width={0}
-            height={0}
-            className="w-full h-full object-cover object-left-top"
-            sizes="20vw"
-          />
+        <div className="relative w-full h-1">
+          <div className="avatar w-28 h-28  rounded-full object-cover overflow-hidden absolute right-0">
+            <Image
+              src={"/image/avt-1.jpg"}
+              alt={""}
+              width={0}
+              height={0}
+              className="w-full h-full object-cover object-left-top"
+              sizes="20vw"
+            />
+          </div>
         </div>
-   
-       </div>
         <div className={styles.introduction}>
           Hey, I&apos;m Khoa
           <div className={styles.occupation}>Front-end Developer</div>
         </div>
-     
-
 
         <div className={styles.contacts}>
           <a href="" target="_blank" className={styles["resume-button"]}>
@@ -73,22 +70,25 @@ const Home = () => {
         <hr className={styles.divider} />
         <div className={styles.summery}>
           <p>
-            My name is Nguyen Hoang Khoa. ​ I am currently a four year student
-            at Ho Chi Minh City University of Information and Communications. ​
-            I specialize in <b>Web Developement</b> and am good at{" "}
-            <b>Front-end</b>. ​ My future goal is to become a web development
-            engineer who can help websites bring benefits and convenience to
-            users.
+            My name is Nguyen Hoang Khoa. ​ I am a four-year student at Ho Chi
+            Minh City University of Information and Communications. ​ I
+            specialize in <b>Web Developement</b> and am good at{" "}
+            <b>Front-end</b>. I always want to learn more about new technologies
+            that are updated every day.
           </p>
           <br />
           <p>
+            <b>📌 The more knowledge you have, the more confident you become</b>
+          </p>
+          {/* <br /> */}
+          {/* <p>
             Currently, I&apos;m working as <b>Software Engineer</b> at MISUMI
             Group Inc.
-          </p>
+          </p> */}
           <br />
           <p>
-            When I’m not coding, I’m usually watching movies and hangout with my
-            friends.
+            When I'm not coding, I usually play sports with friends and go
+            somewhere in the city to relax my mind.
           </p>
           <br />
           <p>
@@ -122,7 +122,6 @@ const Home = () => {
                   />
                 </div>
               ))}
-              
             </div>
           </div>
         </div>

@@ -86,5 +86,22 @@
     ],
     "thumbnail": "https://utfs.io/f/65b3870a-c8c9-427a-a0ca-b359a5fe5344-5j7dvj.jpg",
     "repository": "https://github.com/khoanguyen23/Azure-OpenAI-"
+  },
+  {
+    "id": "6",
+    "name": "Omnigu Website",
+    "description": "Create a website selling jackets using Wordpress and perform website SEO.",
+    "languages": [
+      "Wordpress",
+      "Php"
+    ],
+    "topics": [
+      "Wordpress",
+      "SEO Keyword Research",
+      "Local SEO",
+      "Google Analytics"
+    ],
+    "thumbnail": "https://utfs.io/f/01481b89-6c05-499c-8c9c-7382a66e68cd-w51xja.jpeg",
+    "repository": "https://www.youtube.com/watch?v=puIb8vRIUAg"
   }
 ]
