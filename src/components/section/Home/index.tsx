@@ -29,7 +29,7 @@ const Home = () => {
           Online.
         </div>
         <div className="relative w-full h-1">
-          <div className="avatar w-28 h-28  rounded-full object-cover overflow-hidden absolute right-0">
+          <div className="avatar w-28 h-28  rounded-md object-cover overflow-hidden absolute right-0">
             <Image
               src={"/image/avt-1.jpg"}
               alt={""}
@@ -42,11 +42,14 @@ const Home = () => {
         </div>
         <div className={styles.introduction}>
           Hey, I&apos;m Khoa
-          <div className={styles.occupation}>Front-end Developer</div>
+          {/* <div className={styles.occupation}>Front-end Developer</div> */}
+          <div className="text-5xl mt-2 bg-gradient-to-br from-orange-300  via-red-500 to-rose-300 bg-clip-text text-transparent">
+            Front-end Developer
+          </div>
         </div>
 
         <div className={styles.contacts}>
-          <a href="" target="_blank" className={styles["resume-button"]}>
+          <a href="https://drive.google.com/file/d/1p26SrbXyR9OsII6JRjNjMPyP__DDTnbh/view" target="_blank" className={styles["resume-button"]}>
             {/* <Image src={Resume} alt={'GitHub'} className={styles.icon} width={20} height={20}/> */}
             <div className={styles.label}>Resume</div>
           </a>
@@ -70,11 +73,10 @@ const Home = () => {
         <hr className={styles.divider} />
         <div className={styles.summery}>
           <p>
-            My name is Nguyen Hoang Khoa. ​ I am a four-year student at Ho Chi
-            Minh City University of Information and Communications. ​ I
-            specialize in <b>Web Developement</b> and am good at{" "}
-            <b>Front-end</b>. I always want to learn more about new technologies
-            that are updated every day.
+            ​I am a four-year student at VNUHCM - University of Information
+            Technology - UIT. ​ My major is <b>Web Developement</b> and am good
+            at <b>Front-end</b>. I always want to learn more about new
+            technologies that are updated every day.
           </p>
           <br />
           <p>
