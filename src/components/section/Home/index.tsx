@@ -1,9 +1,17 @@
+"use client";
 import React from "react";
 import styles from "./home.module.scss";
 import Image from "next/image";
 import Container from "@/components/cards/Container";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
+  const router = useRouter();
+  const getTrips = () => {
+    router.push("/my-destination");
+  };
+
   const images = [
     "/image/sun1.jpg",
     "/image/sun2.jpg",
@@ -26,7 +34,7 @@ const Home = () => {
       <div className={styles["home-container"]}>
         <div className={styles.status}>
           <div className={styles["status-circle"]}></div>
-          Online.
+          Graduated.
         </div>
         <div className="relative w-full h-1">
           <div className="avatar w-28 h-28  rounded-md object-cover overflow-hidden absolute right-0">
@@ -49,7 +57,11 @@ const Home = () => {
         </div>
 
         <div className={styles.contacts}>
-          <a href="https://drive.google.com/file/d/1p26SrbXyR9OsII6JRjNjMPyP__DDTnbh/view" target="_blank" className={styles["resume-button"]}>
+          <a
+            href="https://drive.google.com/file/d/1p26SrbXyR9OsII6JRjNjMPyP__DDTnbh/view"
+            target="_blank"
+            className={styles["resume-button"]}
+          >
             {/* <Image src={Resume} alt={'GitHub'} className={styles.icon} width={20} height={20}/> */}
             <div className={styles.label}>Resume</div>
           </a>
@@ -73,27 +85,53 @@ const Home = () => {
         <hr className={styles.divider} />
         <div className={styles.summery}>
           <p>
-            ​I am a four-year student at VNUHCM - University of Information
-            Technology - UIT. ​ My major is <b>Web Developement</b> and am good
-            at <b>Front-end</b>. I always want to learn more about new
-            technologies that are updated every day.
+            ​I graduated at University of Information Technology - UIT. ​ My
+            major is <b>Web Developement</b> and am good at <b>Front-end</b>.
           </p>
+          <br />
+          <p>
+            As a front-end developer focused on building pixel-perfect websites
+            with great attention to detail for a seamless user experience.
+          </p>
+
           <br />
           <p>
             <b>📌 The more knowledge you have, the more confident you become</b>
           </p>
-          {/* <br /> */}
-          {/* <p>
+          <br />
+          <p>
             Currently, I&apos;m working as <b>Software Engineer</b> at MISUMI
             Group Inc.
-          </p> */}
-          <br />
-          <p>
-            When I&apos;m not coding, I usually play sports with friends and go
-            somewhere in the city to relax my mind.
           </p>
           <br />
+
           <p>
+            My hobby is photography. Whenever I go somewhere, I always want to
+            capture memories through photos. And especially, I&apos;m a sunset
+            lover.
+          </p>
+          <div className="mt-4">
+            <Button
+              onClick={getTrips}
+              className="bg-red-200 text-red-600 font-bold hover:bg-red-400 hover:text-white"
+            >
+              See the photos I have taken 👉
+            </Button>
+          </div>
+          <br />
+          <div className="relative inline-flex group">
+            <div className="absolute transitiona-all duration-1000 opacity-0 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-60 group-hover:-inset-1 group-hover:duration-600 animate-tilt"></div>
+            <a
+              href="#"
+              title="Get quote now"
+              className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+              role="button"
+            >
+              See the photos I have taken 👉
+            </a>
+          </div>
+          <br />
+          <p className="mt-20">
             To improve myself, I participated in extracurricular activities. I
             won the Ideathon <b>Sun* Be The Change 2022</b>. Through the
             competition, I learned that it is very important not only to learn

@@ -16,6 +16,108 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
+  .inner-baner-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    position: relative;
+  }
+  .inner-baner-container:before {
+    background-color: #151515;
+    content: "";
+    display: block;
+    opacity: 0.65;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+  .inner-banner-content {
+    padding-top: 120px;
+    padding-bottom: 135px;
+    position: relative;
+    color: #ffffff;
+  }
+  .page-title {
+    color: #ffffff;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: 800;
+  }
+  .destination-content {
+    background-color: #ffffff;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    border-radius: 25px;
+    margin: 20px;
+    padding: 22px 20px;
+    position: relative;
+    .cat-link {
+      color: #3a78c9;
+      display: block;
+      font-size: 13px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+  }
+  .fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    position: fixed; /* Đảm bảo vị trí cố định */
+  }
+  
+  .fixed-button:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .fixed-button::after {
+    content: "Return Home"; /* Nội dung của tooltip */
+    position: absolute;
+    bottom: 60px; /* Khoảng cách giữa tooltip và nút */
+    right: 50%;
+    transform: translateX(50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    z-index: 100; /* Đảm bảo tooltip hiển thị trên cùng */
+  }
+  
+  .fixed-button:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  .destination-item {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
 }
 @layer components {
   .section {
@@ -25,16 +127,16 @@
     position: absolute;
     animation: float-top-bottom 6s ease-in-out infinite;
   }
- 
+
   .img-animate {
     display: flex;
     animation: moveLeft 30s linear infinite;
   }
 
   @media screen and (max-width: 768px) {
-   .avatar {
-    top : -40px ;
-   }
+    .avatar {
+      top: -40px;
+    }
   }
   @keyframes moveLeft {
     0% {

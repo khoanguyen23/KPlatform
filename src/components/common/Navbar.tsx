@@ -169,6 +169,13 @@ export function NavigationMenuDemo({ userRole }: { userRole: string | null }) {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/conversion/json-converter" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Other
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
         {(userRole === EUserRole.USER || userRole === EUserRole.EXPERT) && (
           <NavigationMenuItem>
             <Link href="/requestExpert" legacyBehavior passHref>
