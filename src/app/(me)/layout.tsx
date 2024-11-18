@@ -1,13 +1,14 @@
 import { Navbar } from "@/components/common/Navbar";
 import Navigation from "@/components/navigation/HomeNavigation";
 import Image from "next/image";
+import watermarkBG from "../../../public/image/watermarkBG.webp";
 import React from "react";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="section">
       <Image
-        src="/image/04.jpg"
+        src={watermarkBG}
         alt=""
         width={0}
         height={0}
