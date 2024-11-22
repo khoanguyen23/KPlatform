@@ -7,7 +7,7 @@ import React from "react";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="section">
-      <Image
+      {/* <Image
         src={watermarkBG}
         alt=""
         width={0}
@@ -15,7 +15,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         sizes="100vw"
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
         style={{ width: "100%", height: "100%" }}
-      />
+      /> */}
       <Navigation />
       {children}
     </main>

@@ -10,8 +10,14 @@ export const metadata: Metadata = {
   title: "KPlatform",
   description: "Kplatform cung cấp mọi kiến thức",
   manifest: "/manifest.json",
-  viewport:
-    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  shrinkToFit: true,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

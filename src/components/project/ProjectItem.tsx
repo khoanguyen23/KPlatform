@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { IProject } from "@/database/project.model";
+import Image from "next/image";
 
 
 const ProjectItem = ({ project }: { project: IProject }) => {
@@ -8,7 +9,7 @@ const ProjectItem = ({ project }: { project: IProject }) => {
     <Link href={`/project/${project.slug}`} passHref>
       <div className="bg-card text-card-foreground shadow-sm w-full h-auto rounded-2xl overflow-hidden dark:border-gray-100/10 border-gray-200 border transition-all duration-300 ease-in-out will-change-auto md:group-hover:bg-slate-400/5 dark:md:group-hover:bg-slate-50/5">
         <div className="relative aspect-video">
-          <img
+          <Image
             src={project.image}
             alt={project.title}
             loading="lazy"

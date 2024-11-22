@@ -25,7 +25,7 @@ const Sidebar = () => {
     if (!userId && !wasUserLoggedOut) {
       setWasUserLoggedOut(true);
     }
-  }, [userId]);
+  }, [userId,wasUserLoggedOut]);
 
   useEffect(() => {
     if (userId) {
@@ -37,7 +37,7 @@ const Sidebar = () => {
     } else if (wasUserLoggedOut) {
       window.location.reload();
     }
-  }, [userId]);
+  }, [userId, wasUserLoggedOut]);
 
   return (
     <div className="hidden p-5 border-r borderDarkMode bgDarkMode lg:flex flex-col fixed top-0 left-0 bottom-0 w-[300px]">
