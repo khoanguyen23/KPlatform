@@ -30,9 +30,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       href={project.repository}
       target={"_blank"}
       className={styles["project-card"]}
+      prefetch={false}
     >
       <div className={styles["img-container"]}>
-        {/* <img src={project.thumbnail} alt={'Sample Image'}/> */}
         <Image
           src={project.thumbnail}
           alt={"Sample Image"}
