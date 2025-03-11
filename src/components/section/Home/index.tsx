@@ -85,41 +85,42 @@ const Home = () => {
         <hr className={styles.divider} />
         <div className={styles.summery}>
           <p>
-            ​I graduated at University of Information Technology - UIT. ​ My
-            major is <b>Web Developement</b> and am good at <b>Front-end</b>.
+            <b className="!text-pink-400">A little about me</b>: Life steered me into IT, though honestly,
+            I&apos;ve always been more drawn to business than coding.
           </p>
           <br />
           <p>
-            As a front-end developer focused on building pixel-perfect websites
-            with great attention to detail for a seamless user experience.
+            That said, I&apos;ve come to find coding pretty fascinating. I love
+            keeping up with and exploring <b className="!text-blue-500">new technologies</b> every day.
           </p>
 
           <br />
-          <p>
+          {/* <p>
             <b>📌 The more knowledge you have, the more confident you become</b>
           </p>
-          <br />
+          <br /> */}
           <p>
-            Currently, I&apos;m working as <b>Software Engineer</b> at MISUMI
+            Currently, I&apos;m working as <b className="!text-green-400">Software Engineer</b> at MISUMI
             Group Inc.
           </p>
           <br />
 
           <p>
-            My hobby is photography. Whenever I go somewhere, I always want to
-            capture memories through photos. And especially, I&apos;m a sunset
-            lover.
+            Besides that, I love traveling and photography. I could spend an
+            entire day capturing amazing shots.
           </p>
           <div className="mt-4">
             <Button
+            variant="outline"
+            // variant="ghost"
               onClick={getTrips}
-              className="bg-red-200 text-red-600 font-bold hover:bg-red-400 hover:text-white"
+              className="font-bold hover:bg-red-400 hover:text-white"
             >
               See the photos I have taken 👉
             </Button>
           </div>
-          <br />
-          <div className="relative inline-flex group">
+          {/* <br /> */}
+          {/* <div className="relative inline-flex group">
             <div className="absolute transitiona-all duration-1000 opacity-0 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-60 group-hover:-inset-1 group-hover:duration-600 animate-tilt"></div>
             <a
               href="#"
@@ -129,11 +130,11 @@ const Home = () => {
             >
               See the photos I have taken 👉
             </a>
-          </div>
-          <br />
-          <p className="mt-20">
+          </div> */}
+          {/* <br /> */}
+          <p className="mt-4">
             To improve myself, I participated in extracurricular activities. I
-            won the Ideathon <b>Sun* Be The Change 2022</b>. Through the
+            won the Ideathon <b className="!text-orange-500">Sun* Be The Change 2022</b>. Through the
             competition, I learned that it is very important not only to learn
             IT, but also to have the ability to find and solve problems.
           </p>
